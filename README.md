@@ -1,82 +1,52 @@
-```markdown
 # Aigeon AI: Real-Time Image Search
 
 ## Project Description
 
-Aigeon AI's Real-Time Image Search is a Python-based server application that provides real-time image search capabilities across the web. Utilizing the power of the RapidAPI platform, this application allows users to perform image searches with a variety of customizable filters, similar to those available in Google Images. This project is designed to offer a robust solution for retrieving images based on specific criteria, making it ideal for applications that require dynamic image search functionality.
+Aigeon AI's Real-Time Image Search is a Python-based server application designed to provide users with the ability to perform real-time image searches across the web. This application leverages advanced search filters to refine image search results, making it a powerful tool for users who need precise and specific image data retrieval.
 
 ## Features Overview
 
-- **Real-Time Image Search**: Perform searches across the web to retrieve images in real-time.
-- **Customizable Search Filters**: Utilize a wide range of filters to refine search results, including size, color, type, time, usage rights, file type, aspect ratio, and more.
-- **Safe Search Options**: Control the visibility of explicit content in search results.
-- **Regional Search Capabilities**: Specify the country or region for search queries to tailor results geographically.
-- **Field Projection**: Select specific image fields to include in the response for optimized data retrieval.
+- **Real-Time Image Search**: Perform searches for images across the web in real-time.
+- **Advanced Filtering**: Utilize a wide range of filters to narrow down search results based on size, color, type, time, usage rights, file type, aspect ratio, country, and more.
+- **Safe Search Options**: Control the display of explicit content in search results with safe search settings.
+- **Region-Specific Searches**: Customize searches based on specific countries or regions.
+- **Field Projection**: Specify which fields of image data to include in the response.
 
 ## Main Features and Functionality
 
-- **Search Images**: The core function `search_images` allows users to perform image searches with various filters. It supports parameters such as:
-  - `query`: The search keyword or phrase.
-  - `limit`: Maximum number of results to return.
-  - `size`: Desired image size.
-  - `color`: Dominant color of images.
-  - `type`: Type of image (e.g., photo, clipart).
-  - `time`: Time range for image updates.
-  - `usage_rights`: Licensing and usage rights.
-  - `file_type`: Image file format.
-  - `aspect_ratio`: Aspect ratio of images.
-  - `country`: Country of publication.
-  - `safe_search`: Explicit content handling.
-  - `region`: Region for query execution.
-  - `fields`: Specific fields to include in the response.
+1. **Search Images**: The core functionality of this application is to perform image searches using a variety of filters. Users can specify search queries and refine results based on multiple criteria, ensuring that the images returned meet their specific needs.
 
-## API Endpoints or Main Functions Description
+2. **Filter Options**: Users can apply filters such as:
+   - **Size**: Filter images by size, ranging from icons to high-resolution images.
+   - **Color**: Search for images with a dominant color.
+   - **Type**: Specify the type of image, such as photos, clipart, or animated images.
+   - **Time**: Limit results to images updated within a specific time frame.
+   - **Usage Rights**: Filter images based on usage rights, such as creative commons or commercial use.
+   - **File Type**: Specify the desired image format, including jpg, png, gif, etc.
+   - **Aspect Ratio**: Search for images with specific aspect ratios, such as tall or panoramic.
+   - **Country and Region**: Limit searches to images published in or queried from specific countries or regions.
+   - **Safe Search**: Manage the display of explicit content in search results.
+
+3. **Field Projection**: Users can choose to receive only specific fields of image data in the response, allowing for customized and efficient data retrieval.
+
+## Main Functions Description
 
 ### `search_images`
 
-This function is the primary interface for performing image searches. It constructs a request to the RapidAPI endpoint with the specified parameters and returns the search results in JSON format. The function is decorated with `@mcp.tool()` to integrate with the FastMCP server framework.
+This function is the primary tool for conducting image searches. It accepts several parameters to refine the search results:
 
-## Configuration Parameters Explanation
+- **query**: A string representing the search query or keyword.
+- **limit**: An integer or float specifying the maximum number of results to return (default is 10).
+- **size**: A literal value indicating the desired image size.
+- **color**: A literal value for the dominant color of the images.
+- **type**: A literal value specifying the type of images to search for.
+- **time**: A literal value indicating the time range for the last update of images.
+- **usage_rights**: A literal value for the desired usage rights of the images.
+- **file_type**: A literal value specifying the image format.
+- **aspect_ratio**: A literal value for the aspect ratio of the images.
+- **country**: A string representing the country code for images published in a specific region.
+- **safe_search**: A literal value controlling the display of explicit content.
+- **region**: A string representing the country code for the region from which to make the query.
+- **fields**: A string of comma-separated image fields to include in the response.
 
-- **RapidAPI Configuration**: The application uses a specific RapidAPI host and key for authentication. These are hardcoded in the script:
-  - `x-rapidapi-host`: `real-time-image-search.p.rapidapi.com`
-  - `x-rapidapi-key`: A placeholder key is used in the script. Replace it with a valid key from your RapidAPI account.
-
-## Installation Instructions
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/yourusername/aigeon-ai.real-time-image-search.git
-   cd aigeon-ai.real-time-image-search
-   ```
-
-2. **Install Dependencies**:
-   Ensure you have Python installed. Then, install the required Python packages:
-   ```bash
-   pip install requests pydantic mcp
-   ```
-
-## Usage Instructions
-
-1. **Run the Server**:
-   Execute the following command to start the server:
-   ```bash
-   python your_script_name.py
-   ```
-
-2. **Perform Image Searches**:
-   Use the `search_images` function to perform searches with desired parameters. Customize the search by providing appropriate arguments to the function.
-
-## Requirements/Dependencies
-
-- **Python**: Ensure Python is installed on your system.
-- **Requests**: For making HTTP requests to the RapidAPI endpoint.
-- **Pydantic**: For data validation and settings management.
-- **MCP (FastMCP)**: A framework for building microservices, used to run the server.
-
-Ensure that all dependencies are installed and configured correctly to enable seamless operation of the application.
-
----
-
-This README provides a comprehensive overview of the Aigeon AI: Real-Time Image Search project, detailing its features, configuration, and usage. For further assistance, refer to the official documentation or contact support.
-```
+The function constructs a request to a specified endpoint, applying the provided filters, and returns the search results in JSON format. This allows users to efficiently retrieve and utilize image data tailored to their specific requirements.
